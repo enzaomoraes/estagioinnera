@@ -1,7 +1,7 @@
 Olá, essa é uma aplicacao em Python, utilizando Flask para o back-end, e HTML/CSS para o Front-End, e a aplicacao se resume a um Questionário PSQI interativo feito como processo seletivo de um estágio na Innera Health, a aplicacao é fácil de ser instalada e segue tutorial para a mesma.
 
 # Clonar o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/enzaomoraes/estagioinnera/
 
 # Entrar no diretório do projeto
 cd seu-repositorio
