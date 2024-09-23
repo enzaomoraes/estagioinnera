@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados PSQI</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styletabela.css') }}">
+</head>
+<body>
+    <div class="table-responsive">
+        <table>
+            <caption>Histórico de Respostas do Questionário PSQI</caption>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Horário de Dormir</th>
+                    <th scope="col">Minutos para Dormir</th>
+                    <th scope="col">Horário de Acordar</th>
+                    <th scope="col">Horas de Sono</th>
+                    <th scope="col">Dificuldade para Dormir</th>
+                    <th scope="col">Despertar à Noite</th>
+                    <th scope="col">Ida ao Banheiro à Noite</th>
+                    <th scope="col">Teve um Bom Sono?</th>
+                    <th scope="col">Roncou Forte?</th>
+                    <th scope="col">Sentiu Frio?</th>
+                    <th scope="col">Sentiu Calor?</th>
+                    <th scope="col">Teve Pesadelo?</th>
+                    <th scope="col">Sentiu Dor?</th>
+                    <th scope="col">Outro Motivo para Despertar</th>
+                    <th scope="col">Gravidade do Outro Motivo</th>
+                    <th scope="col">Qualidade do Sono</th>
+                    <th scope="col">Tomou Remédios para Dormir?</th>
+                    <th scope="col">Sonolência Diurna Afetou sua Vida Social?</th>
+                    <th scope="col">Conseguiu Manter Entusiasmo em Atividades?</th>
+                    <th scope="col">Tem Parceiro Dormindo Junto?</th>
+                    <th scope="col">Pontuação Total PSQI</th>
+                    <th scope="col">Explicação da Pontuação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row[0] }}</td> <!-- ID -->
+                    <td>{{ row[1] }}</td> <!-- Horário de Dormir -->
+                    <td>{{ row[2] }}</td> <!-- Minutos para Dormir -->
+                    <td>{{ row[3] }}</td> <!-- Horário de Acordar -->
+                    <td>{{ row[4] }}</td> <!-- Horas de Sono -->
+                    <td>{{ row[5] }}</td> <!-- Dificuldade para Dormir -->
+                    <td>{{ row[6] }}</td> <!-- Despertar à Noite -->
+                    <td>{{ row[7] }}</td> <!-- Ida ao Banheiro à Noite -->
+                    <td>{{ row[8] }}</td> <!-- Teve um Bom Sono? -->
+                    <td>{{ row[9] }}</td> <!-- Roncou Forte? -->
+                    <td>{{ row[10] }}</td> <!-- Sentiu Frio? -->
+                    <td>{{ row[11] }}</td> <!-- Sentiu Calor? -->
+                    <td>{{ row[12] }}</td> <!-- Teve Pesadelo? -->
+                    <td>{{ row[13] }}</td> <!-- Sentiu Dor? -->
+                    <td>{{ row[14] }}</td> <!-- Outro Motivo para Despertar -->
+                    <td>{{ row[15] }}</td> <!-- Gravidade do Outro Motivo -->
+                    <td>{{ row[16] }}</td> <!-- Qualidade do Sono -->
+                    <td>{{ row[17] }}</td> <!-- Tomou Remédios para Dormir? -->
+                    <td>{{ row[18] }}</td> <!-- Sonolência Diurna Afetou sua Vida Social? -->
+                    <td>{{ row[19] }}</td> <!-- Conseguiu Manter Entusiasmo em Atividades? -->
+                    <td>{{ row[20] }}</td> <!-- Tem Parceiro Dormindo Junto? -->
+                    <td>{{ row[21] }}</td> <!-- Pontuação Total PSQI -->
+                    <td>
+                        {% set score = row[21] | int %}
+                        {% if score <= 5 %}
+                            Boa qualidade de sono.
+                        {% elif score <= 10 %}
+                            Sono moderadamente ruim.
+                        {% else %}
+                            Qualidade de sono ruim.
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

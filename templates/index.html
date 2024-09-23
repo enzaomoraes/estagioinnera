@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário PSQI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao Questionário de Qualidade do Sono de Pittsburgh</h1>
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        
+        <form action="/submit" method="POST">
+            <h2>Formulário do PSQI</h2>
+            
+            <div class="form-section">
+                <label for="bedtime">1. Durante o último mês, quando você geralmente foi para a cama à noite?</label>
+                <input type="time" id="bedtime" name="bedtime" required>
+            </div>
+            
+            <div class="form-section">
+                <label for="minutes_to_sleep">2. Durante o último mês, quanto tempo <strong>(em minutos)</strong> você geralmente levou para dormir à noite?</label>
+                <input type="number" id="minutes_to_sleep" name="minutes_to_sleep" min="0" max="240" required>
+            </div>
+
+            <div class="form-section">
+                <label for="wake_time">3. Durante o último mês, quando você geralmente levantou de manhã?</label>
+                <input type="time" id="wake_time" name="wake_time" required>
+            </div>
+
+            <div class="form-section">
+                <label for="hours_of_sleep">4. Durante o último mês, quantas horas de sono você teve por noite? <strong>(Este pode ser diferente do número de horas que você ficou na cama)</strong></label>
+                <input type="number" id="hours_of_sleep" name="hours_of_sleep" required>
+            </div>
+
+            <div class="form-section">
+                <h3>Para cada uma das questões restantes, marque a melhor <strong>(uma)</strong> resposta. <br>Por favor, responda a todas as questões.</h3><br>
+                
+                <div class="form-section">
+                    <label>5. Durante o último mês, com que frequência você teve dificuldade para dormir porque você...</label>
+                    <br>
+                    <div class="radio-group">
+                        <label>A. Não conseguiu adormecer em até 30 minutos?</label>
+                        <input type="radio" id="freq1a" name="difficulty_sleeping" value="0" required>
+                        <label for="freq1a">Nenhuma vez</label>
+                        <input type="radio" id="freq2a" name="difficulty_sleeping" value="1">
+                        <label for="freq2a">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3a" name="difficulty_sleeping" value="2">
+                        <label for="freq3a">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4a" name="difficulty_sleeping" value="3">
+                        <label for="freq4a">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>B. Acordou no meio da noite ou de manhã cedo</label>
+                        <input type="radio" id="freq1b" name="midnightwake" value="0" required>
+                        <label for="freq1b">Nenhuma vez</label>
+                        <input type="radio" id="freq2b" name="midnightwake" value="1">
+                        <label for="freq2b">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3b" name="midnightwake" value="2">
+                        <label for="freq3b">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4b" name="midnightwake" value="3">
+                        <label for="freq4b">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>C. Precisou levantar para ir ao banheiro</label>
+                        <input type="radio" id="freq1c" name="bathroombreak" value="0" required>
+                        <label for="freq1c">Nenhuma vez</label>
+                        <input type="radio" id="freq2c" name="bathroombreak" value="1">
+                        <label for="freq2c">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3c" name="bathroombreak" value="2">
+                        <label for="freq3c">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4c" name="bathroombreak" value="3">
+                        <label for="freq4c">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>D. Não conseguiu respirar confortavelmente</label>
+                        <input type="radio" id="freq1d" name="goodsleep" value="0" required>
+                        <label for="freq1d">Nenhuma vez</label>
+                        <input type="radio" id="freq2d" name="goodsleep" value="1">
+                        <label for="freq2d">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3d" name="goodsleep" value="2">
+                        <label for="freq3d">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4d" name="goodsleep" value="3">
+                        <label for="freq4d">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>E. Tossiu ou roncou forte</label>
+                        <input type="radio" id="freq1e" name="roncouforte" value="0" required>
+                        <label for="freq1e">Nenhuma vez</label>
+                        <input type="radio" id="freq2e" name="roncouforte" value="1">
+                        <label for="freq2e">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3e" name="roncouforte" value="2">
+                        <label for="freq3e">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4e" name="roncouforte" value="3">
+                        <label for="freq4e">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>F. Sentiu muito frio</label>
+                        <input type="radio" id="freq1f" name="toocold" value="0" required>
+                        <label for="freq1f">Nenhuma vez</label>
+                        <input type="radio" id="freq2f" name="toocold" value="1">
+                        <label for="freq2f">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3f" name="toocold" value="2">
+                        <label for="freq3f">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4f" name="toocold" value="3">
+                        <label for="freq4f">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>G. Sentiu muito calor</label>
+                        <input type="radio" id="freq1g" name="toohot" value="0" required>
+                        <label for="freq1g">Nenhuma vez</label>
+                        <input type="radio" id="freq2g" name="toohot" value="1">
+                        <label for="freq2g">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3g" name="toohot" value="2">
+                        <label for="freq3g">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4g" name="toohot" value="3">
+                        <label for="freq4g">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>H. Teve sonhos ruins</label>
+                        <input type="radio" id="freq1h" name="baddream" value="0" required>
+                        <label for="freq1h">Nenhuma vez</label>
+                        <input type="radio" id="freq2h" name="baddream" value="1">
+                        <label for="freq2h">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3h" name="baddream" value="2">
+                        <label for="freq3h">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4h" name="baddream" value="3">
+                        <label for="freq4h">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>I. Teve dor ou desconforto</label>
+                        <input type="radio" id="freq1i" name="in_pain" value="0" required>
+                        <label for="freq1i">Nenhuma vez</label>
+                        <input type="radio" id="freq2i" name="in_pain" value="1">
+                        <label for="freq2i">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3i" name="in_pain" value="2">
+                        <label for="freq3i">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4i" name="in_pain" value="3">
+                        <label for="freq4i">3 ou mais vezes/semana</label>
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>J. Outra(s) razão(ões), por favor descreva</label>
+                        <input type="text" id="other_reason" name="other_reason">
+                    </div>
+                    <br>
+
+                    <div class="radio-group">
+                        <label>Com que frequência, durante o último mês, você teve dificuldade para dormir devido a essa razão?</label>
+                        <input type="radio" id="freq1j" name="reason_value" value="0" required>
+                        <label for="freq1j">Nenhuma vez</label>
+                        <input type="radio" id="freq2j" name="reason_value" value="1">
+                        <label for="freq2j">Menos de 1 vez/semana</label>
+                        <input type="radio" id="freq3j" name="reason_value" value="2">
+                        <label for="freq3j">1 a 2 vezes/semana</label>
+                        <input type="radio" id="freq4j" name="reason_value" value="3">
+                        <label for="freq4j">3 ou mais vezes/semana</label>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-section">
+                    <label>6. Durante o último mês como você classificaria a
+                        qualidade do seu sono de uma maneira geral:</label>
+
+                    <div class="radio-group">
+                        <input type="radio" id="meds1" name="sleep_quality" value="0" required>
+                        <label for="meds1">Muito Boa</label>
+                        <input type="radio" id="meds2" name="sleep_quality" value="1">
+                        <label for="meds2">Boa</label>
+                        <input type="radio" id="meds3" name="sleep_quality" value="2">
+                        <label for="meds3">Ruim</label>
+                        <input type="radio" id="meds4" name="sleep_quality" value="3">
+                        <label for="meds4">Muito Ruim</label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label> 7. Durante o último mês, com que frequência você tomoumedicamento (prescrito ou “por conta própria”) para lhe ajudar a dormir? </label>
+                    <input type="radio" id="freq1j" name="sleep_meds" value="0" required>
+                    <label for="freq1j">Nenhuma vez</label>
+                    <input type="radio" id="freq2j" name="sleep_meds" value="1">
+                    <label for="freq2j">Menos de 1 vez/semana</label>
+                    <input type="radio" id="freq3j" name="sleep_meds" value="2">
+                    <label for="freq3j">1 a 2 vezes/semana</label>
+                    <input type="radio" id="freq4j" name="sleep_meds" value="3">
+                    <label for="freq4j">3 ou mais vezes/semana</label>
+                </div>
+                <br>
+                <div class="form-section">
+                    <label>8. No último mês, que frequência você teve dificuldade
+                        para ficar acordado enquanto dirigia, comia ou participava
+                        de uma atividade social (festa, reunião de amigos,
+                        trabalho, estudo)</label>
+                    <div class="radio-group">
+                        <input type="radio" id="day1" name="social_sleep" value="0" required>
+                        <label for="day1">Nenhuma vez</label>
+                        <input type="radio" id="day2" name="social_sleep" value="1">
+                        <label for="day2">Menos de 1 vez/semana</label>
+                        <input type="radio" id="day3" name="social_sleep" value="2">
+                        <label for="day3">1 a 2 vezes/semana</label>
+                        <input type="radio" id="day4" name="social_sleep" value="3">
+                        <label for="day4">3 ou mais vezes/semana</label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <label>9. Durante o último mês, quão problemático foi pra você
+                        manter o entusiasmo (ânimo) para fazer as coisas (suas
+                        atividades habituais)? </label>
+                    <div class="radio-group">
+                        <input type="radio" id="sleep1" name="activity_happiness" value="0" required>
+                        <label for="sleep1">Nenhuma vez</label>
+                        <input type="radio" id="sleep2" name="activity_happiness" value="1">
+                        <label for="sleep2">Menos de 1 vez/semana</label>
+                        <input type="radio" id="sleep3" name="activity_happiness" value="2">
+                        <label for="sleep3">1 a 2 vezes/semana</label>
+                        <input type="radio" id="sleep4" name="activity_happiness" value="3">
+                        <label for="sleep4">3 ou mais vezes/semana</label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <label>10. Você tem um(a) parceiro [esposo (a)] ou colega de
+                        quarto? </label>
+                        <div class="radio-group">
+                            <input type="radio" id="freq1" name="partner" value="0" required>
+                            <label for="freq1">Nenhuma vez</label>
+                            <input type="radio" id="freq2" name="partner" value="1">
+                            <label for="freq2">Menos de 1 vez/semana</label>
+                            <input type="radio" id="freq3" name="partner" value="2">
+                            <label for="freq3">1 a 2 vezes/semana</label>
+                            <input type="radio" id="freq4" name="partner" value="3">
+                            <label for="freq4">3 ou mais vezes/semana</label>
+                        </div>
+            </div>
+
+            <input type="submit" class="submit-btn" value="Enviar">
+        </form>
+          <!-- Adicione o botão de redirecionamento abaixo do formulário -->
+          <button id="meus-resultados-btn" class="meus-resultados-btn">Ver Meus Resultados</button>
+
+          <script>
+              // Redireciona para a página de "Meus Resultados" ao clicar no botão
+              document.getElementById('meus-resultados-btn').addEventListener('click', function() {
+                  window.location.href = '/minhas_respostas'; // URL para a página de "Meus Resultados"
+              });
+          </script>
+           <!-- Botão para abrir a página do gráfico -->
+        <div class="graph-section">
+            <a href="{{ url_for('historico') }}" class="graph-btn">Visualizar Gráfico de Pontuações</a>
+        </div>
+    </div>
+</body>
+</html>

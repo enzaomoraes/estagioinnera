@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados PSQI</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styletabela.css') }}">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Horário de Dormir</th>
+                <th>Minutos para Dormir</th>
+                <th>Horário de Acordar</th>
+                <th>Horas de Sono</th>
+                <th>Dificuldade para Dormir</th>
+                <th>Despertar à Noite</th>
+                <th>Ida ao Banheiro à Noite</th>
+                <th>Teve um Bom Sono?</th>
+                <th>Roncou Forte?</th>
+                <th>Sentiu Frio?</th>
+                <th>Sentiu Calor?</th>
+                <th>Teve Pesadelo?</th>
+                <th>Sentiu Dor?</th>
+                <th>Outro Motivo para Despertar</th>
+                <th>Gravidade do Outro Motivo</th>
+                <th>Qualidade do Sono</th>
+                <th>Tomou Remédios para Dormir?</th>
+                <th>Sonolência Diurna Afetou sua Vida Social?</th>
+                <th>Conseguiu Manter Entusiasmo em Atividades?</th>
+                <th>Tem Parceiro Dormindo Junto?</th>
+                <th>Pontuação Total PSQI</th>
+                <th>Explicação da Pontuação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row[0] }}</td> <!-- ID -->
+                <td>{{ row[1] }}</td> <!-- Horário de Dormir -->
+                <td>{{ row[2] }}</td> <!-- Minutos para Dormir -->
+                <td>{{ row[3] }}</td> <!-- Horário de Acordar -->
+                <td>{{ row[4] }}</td> <!-- Horas de Sono -->
+                <td>{{ row[5] }}</td> <!-- Dificuldade para Dormir -->
+                <td>{{ row[6] }}</td> <!-- Despertar à Noite -->
+                <td>{{ row[7] }}</td> <!-- Ida ao Banheiro à Noite -->
+                <td>{{ row[8] }}</td> <!-- Teve um Bom Sono? -->
+                <td>{{ row[9] }}</td> <!-- Roncou Forte? -->
+                <td>{{ row[10] }}</td> <!-- Sentiu Frio? -->
+                <td>{{ row[11] }}</td> <!-- Sentiu Calor? -->
+                <td>{{ row[12] }}</td> <!-- Teve Pesadelo? -->
+                <td>{{ row[13] }}</td> <!-- Sentiu Dor? -->
+                <td>{{ row[14] }}</td> <!-- Outro Motivo para Despertar -->
+                <td>{{ row[15] }}</td> <!-- Gravidade do Outro Motivo -->
+                <td>{{ row[16] }}</td> <!-- Qualidade do Sono -->
+                <td>{{ row[17] }}</td> <!-- Tomou Remédios para Dormir? -->
+                <td>{{ row[18] }}</td> <!-- Sonolência Diurna Afetou sua Vida Social? -->
+                <td>{{ row[19] }}</td> <!-- Conseguiu Manter Entusiasmo em Atividades? -->
+                <td>{{ row[20] }}</td> <!-- Tem Parceiro Dormindo Junto? -->
+                <td>{{ row[21] }}</td> <!-- Pontuação Total PSQI -->
+                <td>
+                    {% set score = row[21] | int %}
+                    {% if score <= 5 %}
+                        Boa qualidade de sono.
+                    {% elif score <= 10 %}
+                        Sono moderadamente ruim.
+                    {% else %}
+                        Qualidade de sono ruim.
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

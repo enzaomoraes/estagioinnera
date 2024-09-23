@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados do PSQI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleresultados.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados do PSQI</h1>
+
+        <h2>Pontuação Total: {{ psqi_score }}</h2>
+        <h3>Interpretação:</h3>
+        <p>{{ interpretacao }}</p>
+
+        <h3>Respostas fornecidas:</h3>
+        <ul>
+            <li>Horário de dormir: {{ respostas['bedtime'] }}</li>
+            <li>Tempo para adormecer (minutos): {{ respostas['minutes_to_sleep'] }}</li>
+            <li>Horário de acordar: {{ respostas['wake_time'] }}</li>
+            <li>Horas de sono: {{ respostas['hours_of_sleep'] }}</li>
+            <li>Dificuldade para dormir: {{ respostas['difficulty_sleeping'] }}</li>
+            <li>Despertares noturnos: {{ respostas['midnightwake'] }}</li>
+            <li>Pausas para ir ao banheiro: {{ respostas['bathroombreak'] }}</li>
+            <li>Sono satisfatório: {{ respostas['goodsleep'] }}</li>
+            <li>Ronco forte: {{ respostas['roncouforte'] }}</li>
+            <li>Sentiu muito frio: {{ respostas['toocold'] }}</li>
+            <li>Sentiu muito calor: {{ respostas['toohot'] }}</li>
+            <li>Teve pesadelos: {{ respostas['baddream'] }}</li>
+            <li>Sofreu dores: {{ respostas['in_pain'] }}</li>
+            <li>Outros motivos: {{ respostas['other_reason'] }}</li>
+            <li>Qualidade do sono: {{ respostas['sleep_quality'] }}</li>
+            <li>Uso de medicamentos para dormir: {{ respostas['sleep_meds'] }}</li>
+            <li>Sonolência durante atividades sociais: {{ respostas['social_sleep'] }}</li>
+            <li>Dificuldade em manter entusiasmo nas atividades: {{ respostas['activity_happiness'] }}</li>
+            <li>Condição do parceiro: {{ respostas['partner'] }}</li>
+        </ul>
+
+        <!-- Botão para ver o histórico de respostas -->
+        <a href="{{ url_for('minhas_respostas') }}" class="button">Ver meu histórico de respostas</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo do título principal */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos subtítulos */
+h2, h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+/* Estilo do parágrafo de interpretação */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-left: 5px solid #3498db;
+}
+
+/* Estilo da lista de respostas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo das listas */
+ul li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo das caixas de resposta */
+ul li {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Estilo das mensagens e notas */
+ul li {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Estilo das mensagens e notas */
+ul li {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Adiciona espaço entre o título e o conteúdo */
+h2, h3 {
+    margin-top: 20px;
+}
+
+/* Estilo de borda e espaço das seções */
+ul li {
+    padding: 15px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    text-align: center;
+    text-decoration: none; /* Remove sublinhado */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-top: 20px; /* Espaço acima */
+}
+
+.button:hover {
+    background-color: #45a049; /* Cor ao passar o mouse */
+}

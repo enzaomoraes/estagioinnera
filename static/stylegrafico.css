@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50; /* Cor verde */
+}
+
+canvas {
+    display: block;
+    max-width: 100%; /* Torna o gráfico responsivo */
+    height: auto; /* Mantém a proporção ao redimensionar */
+    margin: 0 auto; /* Centraliza o gráfico */
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
